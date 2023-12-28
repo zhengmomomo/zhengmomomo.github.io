@@ -16,19 +16,21 @@
   <meta name="author" content="zhengmomomo">
   <meta name="keywords" content="">
   
-    <meta property="og:type" content="article">
-<meta property="og:title" content="test">
-<meta property="og:url" content="http://example.com/2023/12/24/test/index.html">
+    <meta name="description" content="如何配置不输入用户名和密码的同时git push 生成个人token  在本地配置使用个人访问令牌： a. 使用 HTTPS URL： 在命令行中，你可以使用 HTTPS 的仓库 URL，将个人访问令牌包含在其中： 1git clone https:&#x2F;&#x2F;&lt;your_username&gt;:&lt;your_token&gt;@github.com&#x2F;username&#x2F;repo.git  或者">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git_push_without_password">
+<meta property="og:url" content="http://example.com/2023/12/28/git-push_without_password/index.html">
 <meta property="og:site_name" content="云拏">
+<meta property="og:description" content="如何配置不输入用户名和密码的同时git push 生成个人token  在本地配置使用个人访问令牌： a. 使用 HTTPS URL： 在命令行中，你可以使用 HTTPS 的仓库 URL，将个人访问令牌包含在其中： 1git clone https:&#x2F;&#x2F;&lt;your_username&gt;:&lt;your_token&gt;@github.com&#x2F;username&#x2F;repo.git  或者">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-12-24T15:38:32.000Z">
-<meta property="article:modified_time" content="2023-12-24T15:38:32.405Z">
+<meta property="article:published_time" content="2023-12-28T15:13:26.000Z">
+<meta property="article:modified_time" content="2023-12-28T15:15:32.746Z">
 <meta property="article:author" content="zhengmomomo">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>test - 云拏</title>
+  <title>git_push_without_password - 云拏</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -194,7 +196,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="test"></span>
+            <span id="subtitle" data-typed-text="git_push_without_password"></span>
           
         </div>
 
@@ -205,8 +207,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-12-24 23:38" pubdate>
-          December 24, 2023 pm
+        <time datetime="2023-12-28 23:13" pubdate>
+          December 28, 2023 pm
         </time>
       </span>
     
@@ -217,7 +219,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          0 words
+          225 words
         
       </span>
     
@@ -228,7 +230,7 @@
         
         
         
-          1 mins
+          2 mins
         
       </span>
     
@@ -265,12 +267,31 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">test</h1>
+            <h1 id="seo-header">git_push_without_password</h1>
             
             
               <div class="markdown-body">
                 
-                
+                <h3 id="如何配置不输入用户名和密码的同时git-push"><a href="#如何配置不输入用户名和密码的同时git-push" class="headerlink" title="如何配置不输入用户名和密码的同时git push"></a>如何配置不输入用户名和密码的同时git push</h3><ol>
+<li><p><strong>生成个人token</strong></p>
+</li>
+<li><p><strong>在本地配置使用个人访问令牌：</strong></p>
+<p><strong>a. 使用 HTTPS URL：</strong></p>
+<p>在命令行中，你可以使用 HTTPS 的仓库 URL，将个人访问令牌包含在其中：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">git clone <span class="hljs-symbol">https:</span>//&lt;your_username&gt;<span class="hljs-symbol">:&lt;your_token&gt;</span><span class="hljs-variable">@github</span>.com/username/repo.git<br></code></pre></td></tr></table></figure>
+
+<p>或者如果已经克隆了仓库，可以更新仓库的远程 URL：</p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-built_in">set-url</span> <span class="hljs-string">origin</span> <span class="hljs-string">https</span>://&lt;<span class="hljs-string">your_username</span>&gt;：&lt;<span class="hljs-string">your_token</span>&gt;@<span class="hljs-string">github</span>.<span class="hljs-string">com</span>/<span class="hljs-string">username</span>/<span class="hljs-string">repo</span>.<span class="hljs-string">git</span><br></code></pre></td></tr></table></figure>
+
+<p>在这个命令中，<code>&lt;your_username&gt;</code> 是你的 GitHub 用户名，<code>&lt;your_token&gt;</code> 是你生成的个人访问令牌，<code>username/repo.git</code> 是你的仓库地址。这个命令会将原始的仓库 URL 替换为使用个人访问令牌的 URL。</p>
+<p><strong>b. 使用 SSH URL：</strong></p>
+<p>如果你更喜欢使用 SSH URL，可以在 <code>~/.gitconfig</code> 文件中配置：</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">git config <span class="hljs-attr">--global</span> url.&quot;git<span class="hljs-keyword">@github</span>.<span class="hljs-attribute">com</span>:<span class="hljs-string">&quot;.insteadOf &quot;</span><span class="hljs-attribute">https</span>://github.com/<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p>然后使用 SSH 克隆和推送：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:username/repo.git<br></code></pre></td></tr></table></figure></li>
+</ol>
+
                 
               </div>
             
@@ -287,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>test</div>
-      <div>http://example.com/2023/12/24/test/</div>
+      <div>git_push_without_password</div>
+      <div>http://example.com/2023/12/28/git-push_without_password/</div>
     </div>
     <div class="license-meta">
       
@@ -300,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>Posted on</div>
-          <div>December 24, 2023</div>
+          <div>December 28, 2023</div>
         </div>
       
       
@@ -335,12 +356,6 @@
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2023/12/24/hello-world/" title="Hello World">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
