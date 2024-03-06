@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  
+  
+  
+  <entry>
+    <title>zhengmo&#39;s 2024 OKR</title>
+    <link href="/2024/03/05/zhengmo-s-2024-OKR/"/>
+    <url>/2024/03/05/zhengmo-s-2024-OKR/</url>
+    
+    <content type="html"><![CDATA[<h3 id="OKR"><a href="#OKR" class="headerlink" title="OKR"></a>OKR</h3><p>OKR（Objective and Key Results）一种目标设定框架，用于设定和追踪目标及其执行结果。</p><p>O (Objective)：目标，指引性的、鼓舞人心的，应当</p><ul><li>清楚的表达目的和意图；</li><li>具有挑战性且现实可行；</li><li>必须真实、客观，绝不含糊；</li><li>是否达成能由旁观者明确无误地判断出。</li></ul><p>KR (Key Results)：关键结果，量化的成果，用于衡量目标的达成程度，应当</p><ul><li>清晰可衡量，能有力地推动；</li><li>必须是产出导向，而非动作导向；</li><li>必须能自证其是否已完成。</li></ul><h4 id="正末个人的2024-OKR"><a href="#正末个人的2024-OKR" class="headerlink" title="正末个人的2024 OKR"></a>正末个人的2024 OKR</h4><ul><li>O1：处于较好的健康状态<ul><li>KR1：体重控制，体重下降至160斤，当前0303-206斤</li><li>KR2：健康饮食，少吃高油高糖的东西</li><li>KR3：更多锻炼，每周至少3次</li><li>KR4：早睡早起，晚上12点左右睡，早上7点半左右起</li></ul></li><li>O2：知识充满我的大脑<ul><li>KR1：更多阅读，今年阅读10本书</li><li>KR2：专业技能学习，每周不少于6小时</li><li>KR3：英语学习，每周不少于3个小时</li></ul></li><li>O3：培养兴趣爱好<ul><li>KR1：更多骑行，每周不少于一次</li><li>KR2：更多咖啡，尝试不同的咖啡喝法</li><li>KR3：更多爱好，培养一个与工作完全无关的兴趣爱好</li></ul></li><li>O4：理财<ul><li>KR1：开源，寻找赚钱途径</li><li>KR2：节流，节省不必要的开支，本年个人资金余量到五位数</li><li>KR3：记账，笔笔有根，每周进行一次复盘</li></ul></li><li>O5：习惯养成<ul><li>KR1：撰写博客，记录工作及开发过程的问题</li></ul></li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>git免输入帐号密码push</title>
+    <link href="/2023/12/28/git%E5%85%8D%E8%BE%93%E5%85%A5%E5%B8%90%E5%8F%B7%E5%AF%86%E7%A0%81push/"/>
+    <url>/2023/12/28/git%E5%85%8D%E8%BE%93%E5%85%A5%E5%B8%90%E5%8F%B7%E5%AF%86%E7%A0%81push/</url>
+    
+    <content type="html"><![CDATA[<h3 id="如何配置不输入用户名和密码的同时git-push"><a href="#如何配置不输入用户名和密码的同时git-push" class="headerlink" title="如何配置不输入用户名和密码的同时git push"></a>如何配置不输入用户名和密码的同时git push</h3><ol><li><p><strong>生成个人token</strong></p></li><li><p><strong>在本地配置使用个人访问令牌：</strong></p><p><strong>a. 使用 HTTPS URL：</strong></p><p>在命令行中，你可以使用 HTTPS 的仓库 URL，将个人访问令牌包含在其中：</p><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">git clone <span class="hljs-symbol">https:</span>//&lt;your_username&gt;<span class="hljs-symbol">:&lt;your_token&gt;</span><span class="hljs-variable">@github</span>.com/username/repo.git<br></code></pre></td></tr></table></figure><p>或者如果已经克隆了仓库，可以更新仓库的远程 URL：</p><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dsconfig"><span class="hljs-string">git</span> <span class="hljs-string">remote</span> <span class="hljs-built_in">set-url</span> <span class="hljs-string">origin</span> <span class="hljs-string">https</span>://&lt;<span class="hljs-string">your_username</span>&gt;：&lt;<span class="hljs-string">your_token</span>&gt;@<span class="hljs-string">github</span>.<span class="hljs-string">com</span>/<span class="hljs-string">username</span>/<span class="hljs-string">repo</span>.<span class="hljs-string">git</span><br></code></pre></td></tr></table></figure><p>在这个命令中，<code>&lt;your_username&gt;</code> 是你的 GitHub 用户名，<code>&lt;your_token&gt;</code> 是你生成的个人访问令牌，<code>username/repo.git</code> 是你的仓库地址。这个命令会将原始的仓库 URL 替换为使用个人访问令牌的 URL。</p><p><strong>b. 使用 SSH URL：</strong></p><p>如果你更喜欢使用 SSH URL，可以在 <code>~/.gitconfig</code> 文件中配置：</p><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs scss">git config <span class="hljs-attr">--global</span> url.&quot;git<span class="hljs-keyword">@github</span>.<span class="hljs-attribute">com</span>:<span class="hljs-string">&quot;.insteadOf &quot;</span><span class="hljs-attribute">https</span>://github.com/<span class="hljs-string">&quot;</span><br></code></pre></td></tr></table></figure><p>然后使用 SSH 克隆和推送：</p><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs crmsh">git <span class="hljs-keyword">clone</span> <span class="hljs-title">git</span>@github.com:username/repo.git<br></code></pre></td></tr></table></figure></li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>git</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  
+</search>
