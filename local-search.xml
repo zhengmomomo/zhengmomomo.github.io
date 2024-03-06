@@ -4,6 +4,25 @@
   
   
   <entry>
+    <title>docker Low Disk Space 问题解决</title>
+    <link href="/2024/03/06/docker-Low-Disk-Space-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/"/>
+    <url>/2024/03/06/docker-Low-Disk-Space-%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3/</url>
+    
+    <content type="html"><![CDATA[<h3 id="docker-编译镜像时Low-Disk-Space-On-“Filesystem-root”-The-volume-“Filesystem-root“-has-only-0-disk-space-remaining"><a href="#docker-编译镜像时Low-Disk-Space-On-“Filesystem-root”-The-volume-“Filesystem-root“-has-only-0-disk-space-remaining" class="headerlink" title="docker 编译镜像时Low Disk Space On “Filesystem root” The volume “Filesystem root“ has only 0 disk space remaining"></a>docker 编译镜像时Low Disk Space On “Filesystem root” The volume “Filesystem root“ has only 0 disk space remaining</h3><p>docker info查看当前docker存储路径，默认为&#x2F;var&#x2F;lib&#x2F;docker</p><p>docker system df 查看docker空间使用情况</p><p>df -h 查看本机磁盘使用情况，找到空间剩余较大的磁盘，更改docker存储位置</p><p>编辑 &#x2F;etc&#x2F;docker&#x2F;daemon.json文件</p><p>添加</p><p>“data-root”: “&#x2F;xxx”,</p><p>xxx为docker的新存储位置，修改后保存退出</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo systemctl daemon-reload <br>sudo systemctl restart docker<br></code></pre></td></tr></table></figure><p>配置生效并重启docker服务</p><p>docker images查看镜像，可能发现之前的镜像没了，莫慌</p><h4 id="恢复之前的镜像"><a href="#恢复之前的镜像" class="headerlink" title="恢复之前的镜像"></a>恢复之前的镜像</h4><ol><li><p><strong>停止 Docker 服务</strong>：首先，确保停止 Docker 服务，以避免在数据迁移过程中发生写入。可以使用如下命令：</p><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs gauss">bashCopy <span class="hljs-built_in">code</span><br>sudo systemctl <span class="hljs-keyword">stop</span> docker<br></code></pre></td></tr></table></figure></li><li><p><strong>迁移数据</strong>：将原来 <code>data-root</code> 目录（默认是 <code>/var/lib/docker</code>）下的所有内容复制到新的 <code>data-root</code> 路径。这可以通过命令行工具如 <code>rsync</code> 或 <code>cp</code> 完成。例如，如果新的 <code>data-root</code> 路径是 <code>/home/docker</code>，可以使用以下命令：</p><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">bashCopy code<br>sudo rsync -avzh <span class="hljs-regexp">/var/</span>lib<span class="hljs-regexp">/docker/</span> <span class="hljs-regexp">/home/</span>docker/<br></code></pre></td></tr></table></figure><p>确保替换 <code>/home/docker/</code> 为你实际的新路径。使用 <code>rsync</code> 而不是 <code>cp</code> 可以更好地处理大文件和权限。</p></li><li><p><strong>检查权限</strong>：确认新的 <code>data-root</code> 目录的权限和所有权设置正确。Docker 需要适当的权限来访问这些文件。</p></li><li><p><strong>重启 Docker 服务</strong>：完成数据迁移和权限设置后，重启 Docker 服务：</p><figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">bashCopy</span> <span class="hljs-meta">code</span><br><span class="hljs-symbol">sudo</span> systemctl start docker<br></code></pre></td></tr></table></figure></li><li><p><strong>验证镜像和容器</strong>：使用 <code>docker images</code> 和 <code>docker ps -a</code> 命令来验证你的镜像和容器是否已成功恢复。</p></li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>docker</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>zhengmo&#39;s 2024 OKR</title>
     <link href="/2024/03/05/zhengmo-s-2024-OKR/"/>
     <url>/2024/03/05/zhengmo-s-2024-OKR/</url>
