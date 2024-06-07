@@ -282,7 +282,7 @@ web_analytics:  # 网页访问统计
     app_key: WFg72NBHSQjCb87pSEJIzfom
     # REST API 服务器地址，国际版不填
     # Only the Chinese mainland users need to set
-    server_url:
+    server_url: https://pbxoxsfp.lc-cn-n1-shared.com
     # 统计页面时获取路径的属性
     # Get the attribute of the page path during statistics
     path: window.location.pathname
@@ -459,7 +459,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: /img/default.png
+  banner_img: /img/wallpaper.jpg
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -531,7 +531,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/default.png
+  banner_img: /img/wallpaper.jpg
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -723,7 +723,7 @@ post:
   # 评论插件
   # Comment plugin
   comments:
-    enable: true
+    enable: false
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis | giscus | discuss
@@ -894,7 +894,7 @@ discuss:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: /img/default.png
+  banner_img: /img/wallpaper.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -905,7 +905,7 @@ archive:
 #---------------------------
 category:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/wallpaper.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -934,7 +934,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/wallpaper.jpg
   banner_img_height: 80
   banner_mask_alpha: 0.3
   tagcloud:
@@ -951,7 +951,7 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: /img/default.png
+  banner_img: /img/wallpaper.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
   avatar: /img/avatar.png
@@ -973,7 +973,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: /img/default.png
+  banner_img: /img/wallpaper.jpg
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
