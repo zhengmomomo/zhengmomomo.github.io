@@ -1,5 +1,6 @@
 ---
-title: {{ title }}
-date: {{ date }}
+title: post
+date: 2024-06-24 16:36:26
+author: zhengmo
 tags:
 ---
