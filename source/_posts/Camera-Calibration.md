@@ -1,23 +1,23 @@
 ---
 title: Camera_Calibration
 date: 2024-06-07 14:17:47
-tags: Tech Article
+tags:
+  - Tech
 math: true
 ---
-
-
 
 ## 相机标定之四个坐标系
 
 ### 一、四大坐标系简述
 
-![四大坐标系](00_four_axis.png)
+![四大坐标系](Camera-Calibration/00_four_axis.png)
+
 - 世界坐标系：就是身处的世界
 - 相机坐标系：相机光心（感光芯片的中心）为坐标原点
 - 成像坐标系：焦点为坐标原点，与相机坐标系距离一个焦距，单位是毫米
 - 像素坐标系：以图像左上角为坐标原点，单位是像素
 
-![](Camera-Calibration/01.png)
+![光心与焦点](Camera-Calibration/01.png)
 
 ```
 物体（世界坐标系）     透镜（相机坐标系）      成像平面（成像/像素坐标系）
@@ -36,28 +36,25 @@ math: true
 两坐标系的位置关系如下图所示，像素坐标系为$O_p-(u,v)$ ，成像坐标系为$O_i-(x,y)$，转换基于以下两条实现：
 
 a. 成像坐标系的坐标原点为焦点，在像素坐标系下的坐标为$(u_0,v_0)$​ 
-
 b. 已知$dx,dy$​分别表示一个像素物理x方向和y方向的长度
 
-{% asset_img 02.png  %}
+![像素坐标系与成像坐标系](Camera-Calibration/02.png)
 
 转换关系为：
 
-{% asset_img 03.png  %}
-
+![](Camera-Calibration/03.png)
 #### **2.成像坐标系到相机坐标系的转换**
 
 两坐标系的位置关系如下图所示，成像坐标系为$o-(x,y)$，相机坐标系为$O_C-(X_C,Y_C,Z_C)$，转换基于以下关系：
 
 a. 光心与焦点之间的距离为焦距$f$
-
 b.三角形 $O_coC$ 与三角形 $O_CAB$ 相似、三角形 $O_CPC$ 与三角形 $O_CBP$ 相似
 
-{% asset_img 04.png  %}
+![成像坐标系与相机坐标系](Camera-Calibration/04.png)
 
 转换关系为：
 
-{% asset_img 05.png  %}
+![](Camera-Calibration/05.png)
 
 #### **3.相机坐标系到世界坐标系的转换**
 
@@ -65,29 +62,29 @@ b.三角形 $O_coC$ 与三角形 $O_CAB$ 相似、三角形 $O_CPC$ 与三角形
 
 a.转换由平移变换和旋转变换组成 ，如下图 R 为旋转矩阵，T 为平移向量
 
-{% asset_img 06.png  %}
+![相机坐标系与世界坐标系](Camera-Calibration/06.png)
 
 **平移变换**，假设相机坐标点 $(X_C, Y_C,Z_C)$ 平移 $(t_x, t_y, t_z)$ 到世界坐标点$(X_W,Y_W,Z_W)$​​ ，有：
 
-{% asset_img 07.png  %}
+![](Camera-Calibration/07.png)
 
 **旋转变换**，即假设分别围绕x轴、y轴、z轴旋转α, β , γ  度数，总的旋转矩阵为，从左往右依次代表沿z轴，沿y轴和沿x轴旋转
 
-{% asset_img 08.png  %}
+![](Camera-Calibration/08.png)
 
 **旋转平移变换的总的形式**可以写成如下：
 
-{% asset_img 09.png  %}
+![](Camera-Calibration/09.png)
 
 其中：
 
-{% asset_img 10.png  %}
+![](Camera-Calibration/10.png)
 
 #### 总结
 
 像素坐标系到世界坐标系的变换
 
-{% asset_img 11.png  %}
+![](Camera-Calibration/11.png)
 
 - 左边框内为**外参**，右边框内为**内参**
 
@@ -95,11 +92,6 @@ a.转换由平移变换和旋转变换组成 ，如下图 R 为旋转矩阵，T 
 
 - Zc很明显，表示的是点离光轴的距离
 
-
-
-$$
-x^2=4
-$$
 
 
 
