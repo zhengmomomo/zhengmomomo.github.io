@@ -167,6 +167,17 @@ blockquote {
   text-align: center;
   position: relative;
 
+  /* 顶格标题样式 */
+  .header {
+    text-align: left;
+    position: absolute;
+    top: 20px; /* 调整距离页面顶部的距离 */
+    left: 20px; /* 调整距离页面左边的距离 */
+    font-weight: 300;
+    font-size: 2em; /* 调整标题字体大小 */
+    color: #000; /* 修改为黑色 */
+  }
+
   a {
     border-bottom: solid 1px #eee;
   }
