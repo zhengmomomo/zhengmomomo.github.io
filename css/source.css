@@ -184,6 +184,12 @@ blockquote {
     z-index: 1000; /* 确保标题在最上层 */
   }
 
+  .header h1 {
+    margin: 0; /* 去除默认外边距 */
+    font-size: inherit; /* 确保字体大小继承自父元素 */
+    font-weight: inherit; /* 确保字体粗细继承自父元素 */
+  }
+  
   a {
     border-bottom: solid 1px #eee;
   }
