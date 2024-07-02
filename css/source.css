@@ -171,12 +171,17 @@ blockquote {
   /* 顶格标题样式 */
   .header {
     text-align: left;
-    position: absolute;
-    top: 20px; /* 调整距离页面顶部的距离 */
-    left: 20px; /* 调整距离页面左边的距离 */
+    position: fixed; /* 使用 fixed 而不是 absolute */
+    top: 0;
+    left: 0;
+    width: 100%; /* 确保标题占满宽度 */
+    background: white; /* 设置背景色，确保覆盖内容 */
+    padding: 10px 20px; /* 添加内边距 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 添加阴影，区分内容 */
     font-weight: 300;
     font-size: 2em; /* 调整标题字体大小 */
     color: #000; /* 修改为黑色 */
+    z-index: 1000; /* 确保标题在最上层 */
   }
 
   a {
