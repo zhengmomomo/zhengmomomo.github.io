@@ -119,14 +119,14 @@ blockquote {
   text-align: center;
   width: 100%;
   font-size: 90%;
-  color: $grey-light;
+  color: $black-light;
   /* opacity: .6; */
   li {
     display: inline-block;
   }
 
   a {
-    color: $grey-bold;
+    color: $black-light;
   }
   a:hover {
     color: $scooter;
